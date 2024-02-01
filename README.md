@@ -10,6 +10,8 @@ Biome をインストールした Next.js プロジェクト
 
 ## Biome
 
+- 設定ファイル `./biome.json`
+
 - 使い方
 
   ```bash
