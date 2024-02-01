@@ -30,6 +30,7 @@ Biome をインストールした Next.js プロジェクト
   - [Biome の設定について](https://biomejs.dev/ja/reference/configuration/)
   - [Formatter のルールについて](https://biomejs.dev/ja/reference/configuration/#formatter)
   - [Linter のルールについて](https://biomejs.dev/ja/linter/rules/)
+  - [import 文のソートについて](https://biomejs.dev/analyzer/#imports-sorting)
 
 ## VSCode の設定
 
