@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js × Biome
 
-## Getting Started
+Biome をインストールした Next.js プロジェクト
 
-First, run the development server:
+## 環境
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- TypeScript 5.3.3
+- Next.js 14.1.0
+- Biome 1.5.3
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Biome
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 使い方
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  ```bash
+  # Formatter ルールを適用
+  npx @biomejs/biome format --write <files or directory>
 
-## Learn More
+  # Linterルールを適用
+  npx @biomejs/biome lint --apply <files or directory>
 
-To learn more about Next.js, take a look at the following resources:
+  # 上記を一括で実行
+  npx @biomejs/biome check --apply <files or directory>
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 参考
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  - [Biome の設定について](https://biomejs.dev/ja/reference/configuration/)
+  - [Formatter のルールについて](https://biomejs.dev/ja/reference/configuration/#formatter)
+  - [Linter のルールについて](https://biomejs.dev/ja/linter/rules/)
 
-## Deploy on Vercel
+## VSCode の設定
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  拡張機能 [Biome](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) をインストールする
+2.  settings.json に Biome の設定を追加する
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```json
+    "editor.codeActionsOnSave": {
+        // 保存時にLinterを適用
+        "quickfix.biome": true,
+        // 保存時にインポートの並び替えを適用
+        "source.organizeImports.biome": true
+    },
+    // 保存時に Formatter を適用
+    "editor.formatOnSave": true,
+    // デフォルトの Formatter は prettier を指定
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // js, jsx, ts, tsx, json ファイルは Biome を指定（左記以外は prettier）
+    "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+    },
+    ```
