@@ -1,6 +1,6 @@
 # Next.js × Biome
 
-Biome をインストールした Next.js プロジェクト
+Biome をインストールした Next.js プロジェクトの雛形
 
 ## 環境
 
